@@ -1,29 +1,41 @@
-# create-svelte
+# Reset Password and Change Email flow
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is a SvelteKit/Supabase project showing how to do password reset and email change.
 
-## Creating a project
+This project makes use of:
 
-If you're seeing this, you've probably already done this step. Congrats!
+- [Zod](https://zod.dev/) Schema Validation library
+- [Supabase Auth Helpers SvelteKit](https://supabase.com/docs/guides/auth/auth-helpers/sveltekit)
+- [DaisyUI](https://daisyui.com/)
+- [tailwindcss](https://tailwindcss.com/)
+
+## Getting started
+
+You can get started with this locally by using the Supabase CLI. Make sure you have the CLI installed before continuing. You can find installation instructions [here](https://supabase.com/docs/guides/cli).
+
+Now clone the project, then enter into the project directory.
+
+Run the command below to start your local Supabase docker instance
 
 ```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
+supabase start
 ```
 
-## Developing
+Now create an `.env` file inside of the project root with the credentials you were given when you ran `supabase start`.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Then lets install dependencies for the project:
+
+```bash
+npm install
+```
+
+Now we can start the project dev server
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
+
+We can now navigate to the `/auth/signup` url to create an account.
 
 ## Building
 
