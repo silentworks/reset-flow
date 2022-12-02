@@ -1,7 +1,6 @@
 import { fault, formatError, success } from '$lib/utils';
 import { ForgotPasswordSchema } from '$lib/validationSchema';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
-import { AuthApiError } from '@supabase/supabase-js';
 import { invalid } from '@sveltejs/kit';
 import { ZodError } from 'zod';
 import type { Actions } from './$types';
@@ -24,7 +23,7 @@ export const actions: Actions = {
 		}
 
 		const { error } = await supabase.auth.resetPasswordForEmail(email, {
-			redirectTo: `${url.origin}/account`
+			redirectTo: `${url.origin}/account/update-password`
 		});
 
 		if (error) {

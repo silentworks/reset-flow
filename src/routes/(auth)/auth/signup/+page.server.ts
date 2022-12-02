@@ -8,7 +8,7 @@ import type { Actions } from './$types';
 
 export const actions: Actions = {
 	default: async (event) => {
-		const { request, url } = event;
+		const { request } = event;
 		const { supabaseClient: supabase } = await getSupabase(event);
 
 		const formData = await request.formData();
