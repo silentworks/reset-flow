@@ -24,7 +24,6 @@ export const actions: Actions = {
 			UpdatePasswordSchema.parse({ password, passwordConfirm });
 		} catch (err) {
 			if (err instanceof ZodError) {
-				console.log({ message: err.message });
 				const errors = formatError(err);
 				return invalid(400, { errors, password });
 			}
