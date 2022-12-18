@@ -2,7 +2,7 @@ import { fault, formatError, success } from '$lib/utils';
 import { AuthUserSchema } from '$lib/validationSchema';
 import { getSupabase } from '@supabase/auth-helpers-sveltekit';
 import { AuthApiError } from '@supabase/supabase-js';
-import { invalid } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 import { ZodError } from 'zod';
 import type { Actions } from './$types';
 
@@ -20,7 +20,7 @@ export const actions: Actions = {
 		} catch (err) {
 			if (err instanceof ZodError) {
 				const errors = formatError(err);
-				return invalid(400, { errors, email });
+				return fail(400, { errors, email });
 			}
 		}
 
@@ -31,10 +31,10 @@ export const actions: Actions = {
 
 		if (error) {
 			if (error instanceof AuthApiError && error.status === 400) {
-				return invalid(400, fault('Invalid credentials.', { email }));
+				return fail(400, fault('Invalid credentials.', { email }));
 			}
 
-			return invalid(500, fault('Server error. Try again later.', { email }));
+			return fail(500, fault('Server error. Try again later.', { email }));
 		}
 
 		return success('Please check your email for a magic link to log into the website.');
