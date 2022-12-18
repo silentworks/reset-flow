@@ -9,6 +9,9 @@ This project makes use of:
 - [DaisyUI](https://daisyui.com/)
 - [tailwindcss](https://tailwindcss.com/)
 
+## Reset Password Flow in Server-side rendering (SSR) environment
+![Password Reset Flow](Reset_Password_Flow_SSR.excalidraw.png)
+
 ## Getting started
 
 You can get started with this locally by using the Supabase CLI. Make sure you have the CLI installed before continuing. You can find installation instructions [here](https://supabase.com/docs/guides/cli).
